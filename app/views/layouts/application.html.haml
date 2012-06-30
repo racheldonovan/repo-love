@@ -1,0 +1,15 @@
+!!! 5
+%html
+%head
+  %title Git Repo Love
+  = stylesheet_link_tag    "application", :media => "all" 
+  = javascript_include_tag "application" 
+  = stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Syncopate' 
+  = csrf_meta_tags 
+
+%body
+  .row
+    .span12
+      .center-text.pull-down20
+        %h1.custom Code I L<3ve
+  = yield
