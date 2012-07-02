@@ -1,0 +1,5 @@
+.row.pull-down20
+  .span6.offset3.center-text
+    = form_tag search_path, :class => 'form-search form-large' do 
+      = text_field_tag :keyword, nil, :class => 'search-query input-large'
+      = submit_tag "Search", :class => 'btn btn-large btn-primary'

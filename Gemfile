@@ -14,6 +14,7 @@ gem 'ruby-debug19', :require => 'ruby-debug'
 gem 'haml'
 gem 'omniauth'
 gem "omniauth-github"
+gem "github_api"
 
 group :development, :test do
   gem 'rspec-rails'
