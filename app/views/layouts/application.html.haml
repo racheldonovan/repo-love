@@ -9,6 +9,13 @@
 
 %body
   .row
+    .span1.offset10
+      -if current_user
+        = image_tag current_user.image_url unless current_user.image_url.nil?
+        = link_to "Sign Out", signout_path
+      -else
+        =link_to "Sign In", "/auth/github"
+  .row
     .span12
       .center-text.pull-down20
         %h1.custom Code I L<3ve

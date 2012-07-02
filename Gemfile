@@ -12,7 +12,10 @@ end
 gem 'jquery-rails'
 gem 'ruby-debug19', :require => 'ruby-debug'
 gem 'haml'
+gem 'omniauth'
+gem "omniauth-github"
 
 group :development, :test do
   gem 'rspec-rails'
+  gem 'factory_girl_rails'
 end
