@@ -3,5 +3,8 @@ class ReposController < ApplicationController
   end
 
   def search
+  	@keyword = params[:keyword]
+    github = Github.new
+    @results = github.search.repos keyword: @keyword
   end
 end

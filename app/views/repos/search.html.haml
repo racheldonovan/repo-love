@@ -1,0 +1,22 @@
+.row.pull-down20
+  .span6.offset3.center-text
+    = form_tag search_path, :class => 'form-search form-large' do 
+      = text_field_tag :keyword, @keyword, :class => 'search-query input-large'
+      = submit_tag "Search", :class => 'btn btn-large btn-primary'
+.row.pull-down20
+  .span12
+    %table.table-bordered.table-striped.center-block
+      - for repo in @results["repositories"]
+        %tr
+          %td.span1
+            <3
+          %td.span9
+            %h2.pad5= link_to repo.name, repo.url
+            %p.pad5= repo.description
+          %td.span2
+            %p.pad5
+              Watchers: #{repo.watchers}
+              %br
+              Forks: #{repo.forks}
+              %br
+              Language: #{repo.language}

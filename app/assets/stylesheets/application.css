@@ -14,6 +14,12 @@
 
 body {
   background-image: url("cross_scratches.png");
+  margin: 0 auto;
+}
+
+.template-container {
+  width: 1170px;
+  margin: 0 auto;
 }
 
 h1.custom {

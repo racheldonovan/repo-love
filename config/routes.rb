@@ -1,7 +1,7 @@
 RepoLove::Application.routes.draw do
   get "repos/index"
 
-  get "repos/search", :as => :search
+  post "repos/search", :as => :search
 
   get "home/index"
 
