@@ -9,15 +9,29 @@
 
 %body
   .template-container
-    .row
-      .span1.offset10
-        -if current_user
-          = image_tag current_user.image_url unless current_user.image_url.nil?
-          = link_to "Sign Out", signout_path
-        -else
-          =link_to "Sign In", "/auth/github"
-    .row
-      .span12
-        .center-text.pull-down20
+    .row.pull-down20
+      .span8.offset2
+        .center-text
           %h1.custom Code To L<3ve
+      .span2
+        -if current_user
+          .user_photo= image_tag current_user.image_url unless current_user.image_url.nil?
+    .row.extend-down20
+      .span12
+        -if current_user
+          %ul.nav.nav-tabs.pull-left.span12.no-margin
+            %li.search_tab= link_to "Search for Love", repos_index_path
+            %li.fav_tab= link_to "My Loves", favorites_index_path
+            %li.signout_tab= link_to "Sign Out", signout_path
+    .row
+      .span12#flashBlock
+        - flash.each do |name, msg|
+          .alert.alert-block.center-block= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String)
     = yield
+
+:javascript
+  $(function() {
+   $('#flashBlock').delay(500).fadeIn('normal', function() {
+      $(this).delay(1000).fadeOut();
+   });
+  });

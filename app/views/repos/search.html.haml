@@ -1,20 +1,20 @@
 .row.pull-down20
-  .span6.offset3.center-text
+  .span8.offset2.center-text
     = form_tag search_path, :class => 'form-search form-large' do 
-      = text_field_tag :keyword, @keyword, :class => 'search-query input-large'
+      = text_field_tag :keyword, @keyword, :class => 'search-query input-large span6'
       = submit_tag "Search", :class => 'btn btn-large btn-primary'
 .row.pull-down20
   .span12
     %table.table-bordered.table-striped.center-block
       - for repo in @results["repositories"]
         %tr
-          %td.span1
+          %td.span2.center-text
             =form_for @user, :url => favorites_create_path, :method => :post do |f|
               = f.fields_for :favorite do |fav|
                 = fav.hidden_field :repo_name, :value => repo.name
                 = fav.hidden_field :repo_url, :value => repo.url
                 = fav.hidden_field :repo_description, :value => repo.description
-              = f.submit "Love", :class => 'btn btn-primary'
+              = f.submit "Love", :class => 'btn btn-primary btn-large pull-down10'
           %td.span9
             %h2.pad5= link_to repo.name, repo.url
             %p.pad5= repo.description
@@ -25,3 +25,6 @@
               Forks: #{repo.forks}
               %br
               Language: #{repo.language}
+
+:javascript
+  $(".search_tab").addClass("active");

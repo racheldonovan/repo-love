@@ -13,6 +13,6 @@ class FavoritesController < ApplicationController
   def destroy
     @favorite = Favorite.find(params[:id])
     @favorite.destroy
-    redirect_to favorites_index_path
+    redirect_to favorites_index_path, :notice => 'You have unloved some code, and prob made a dev cry.'
   end
 end
