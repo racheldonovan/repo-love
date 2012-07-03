@@ -8,7 +8,7 @@
         %tr
           %td.span2
             .pad5
-              action
+              = link_to 'UnLove', favorites_path(:id => fav), :confirm => 'Do you really want to unlove?', :method => :delete, :class => 'btn btn-primary'
           %td
             .pad5
               %h3=link_to fav.repo_name, fav.repo_url

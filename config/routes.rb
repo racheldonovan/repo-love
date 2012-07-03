@@ -2,7 +2,8 @@ RepoLove::Application.routes.draw do
   
   get "favorites/index"
   post "favorites/create"
-  get "favorites/destroy"
+
+  resource :favorites, :only => [:destroy]
 
   get "repos/index"
   post "repos/search", :as => :search
