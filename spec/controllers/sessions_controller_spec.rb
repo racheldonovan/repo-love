@@ -20,7 +20,7 @@ describe SessionsController do
 
   it 'it should create session' do
     post :create, @omniauth
-    response.should redirect_to(root_url)
+    response.should redirect_to(repos_index_path)
 
   end
 

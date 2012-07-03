@@ -37,4 +37,8 @@ describe User do
 
   end
 
+  it 'should have favorites association' do
+    FactoryGirl.create(:user).should respond_to(:favorites)
+  end
+
 end

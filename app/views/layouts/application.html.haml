@@ -15,7 +15,7 @@
           %h1.custom Code To L<3ve
       .span2
         -if current_user
-          .user_photo= image_tag current_user.image_url unless current_user.image_url.nil?
+          .user_photo= image_tag current_user.image_url, :size => '81x81' unless current_user.image_url.nil?
     .row.extend-down20
       .span12
         -if current_user
@@ -32,6 +32,6 @@
 :javascript
   $(function() {
    $('#flashBlock').delay(500).fadeIn('normal', function() {
-      $(this).delay(1000).fadeOut();
+      $(this).delay(1500).fadeOut();
    });
   });

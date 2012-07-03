@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   attr_accessible :name, :provider, :uid
 
-  has_many :favorites
+  has_many :favorites, :dependent => :destroy
   accepts_nested_attributes_for :favorites
 
   validates :name, :presence => true

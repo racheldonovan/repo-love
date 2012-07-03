@@ -1,13 +1,15 @@
 class FavoritesController < ApplicationController
+  before_filter :req_user
+
   def index
-    @user = User.find(session[:user_id])
+    @user = User.find(current_user)
     @favorites = @user.favorites
   end
 
   def create
-    @user = User.find(session[:user_id])
+    @user = User.find(current_user)
     @favorite = @user.favorites.create(params[:user][:favorite])
-    redirect_to favorites_index_path
+    redirect_to favorites_index_path, :notice => 'Code has been loved!'
   end
 
   def destroy
