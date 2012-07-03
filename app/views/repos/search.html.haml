@@ -9,7 +9,12 @@
       - for repo in @results["repositories"]
         %tr
           %td.span1
-            <3
+            =form_for @user, :url => favorites_create_path, :method => :post do |f|
+              = f.fields_for :favorite do |fav|
+                = fav.hidden_field :repo_name, :value => repo.name
+                = fav.hidden_field :repo_url, :value => repo.url
+                = fav.hidden_field :repo_description, :value => repo.description
+              = f.submit "Love", :class => 'btn btn-primary'
           %td.span9
             %h2.pad5= link_to repo.name, repo.url
             %p.pad5= repo.description

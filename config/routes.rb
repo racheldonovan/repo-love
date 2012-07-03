@@ -1,6 +1,10 @@
 RepoLove::Application.routes.draw do
-  get "repos/index"
+  
+  get "favorites/index"
+  post "favorites/create"
+  get "favorites/destroy"
 
+  get "repos/index"
   post "repos/search", :as => :search
 
   get "home/index"

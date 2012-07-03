@@ -11,7 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120701032511) do
+ActiveRecord::Schema.define(:version => 20120703011418) do
+
+  create_table "favorites", :force => true do |t|
+    t.integer  "repo_id"
+    t.string   "repo_name"
+    t.string   "repo_url"
+    t.text     "repo_description"
+    t.integer  "user_id"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+  end
+
+  add_index "favorites", ["user_id"], :name => "index_favorites_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "provider"
