@@ -1,0 +1,1 @@
+an example of a quick app that utilizes the github api to search repos then allows users to save their favorites.
